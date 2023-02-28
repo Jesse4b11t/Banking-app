@@ -11,24 +11,6 @@ public class cardHolder
     String lastName;
     double balance;
 
-    static void Security(string[] args)
-    {
-        RsaEncryption rsa = new RsaEncryption();
-        string cypher = string.Empty;
-
-        Console.WriteLine($"Public Key: {rsa.GetPublicKey()}\n");
-
-        Console.WriteLine("enter your text to encrypt");
-        var text = Console.ReadLine();
-        if (!string.IsNullOrEmpty(text))
-        {
-            cypher = rsa.Encrypt(text);
-            Console.WriteLine($"Encypted Text: {cypher}");
-        }
-        Console.WriteLine("Press the number 5 to dycrypt text");
-        Console.ReadLine();
-        var plainText = rsa.Decrypt(cypher);
-    }
     public class RsaEncryption
     {
         private static RSACryptoServiceProvider csp = new RSACryptoServiceProvider(2048);
@@ -122,6 +104,24 @@ public class cardHolder
 
     public static void Main(String[] args)
     {
+
+
+        RsaEncryption rsa = new RsaEncryption();
+        string cypher = string.Empty;
+
+        Console.WriteLine($"Public Key: {rsa.GetPublicKey()}\n");
+
+        Console.WriteLine("enter your text to encrypt");
+        var text = Console.ReadLine();
+        if (!string.IsNullOrEmpty(text))
+        {
+            cypher = rsa.Encrypt(text);
+            Console.WriteLine($"Encypted Text: {cypher}");
+        }
+        Console.WriteLine("Press the number 5 to dycrypt text");
+        Console.ReadLine();
+        var plainText = rsa.Decrypt(cypher);
+
         void printOptions()
         {
             Console.WriteLine("Please choose from one of the following options...");
